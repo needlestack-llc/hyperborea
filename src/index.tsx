@@ -70,7 +70,7 @@ app.notFound(async (ctx) => {
 				<UnoStyles />
 			</head>
 			<body class="bg-neutral-950 text-white">
-				<div class="p-6 w-screen min-h-screen flex flex-col gap-3">
+				<div class="p-6 w-screen min-h-screen flex flex-col">
 					<span class="font-semibold text-lg flex flex-row items-center gap-1.5">
 						{urlPath !== '' && (
 							<a
@@ -83,8 +83,8 @@ app.notFound(async (ctx) => {
 						{urlPath === '' && <span>{ctx.req.url}</span>}
 						<Crumbs path={urlPath} />
 					</span>
-					<label class="relative">
-						<span class="absolute top-1.5 bottom-1.5 left-3 flex items-center justify-center">
+					<label class="sticky top-0 bg-neutral-950 px-6 py-3 -translate-x-6 w-screen">
+						<span class="absolute top-1.5 bottom-1.5 left-9 flex items-center justify-center">
 							<MagnifyingGlassIcon />
 						</span>
 						<input
