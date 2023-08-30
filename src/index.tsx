@@ -10,7 +10,7 @@ import { consola } from 'consola';
 import chalk from 'chalk';
 import { readdir, stat } from 'fs/promises';
 import { parseArgs } from './arguments';
-import { resolve, join } from 'path';
+import { resolve, join, relative } from 'path';
 import { ChevronLeftIcon, MagnifyingGlassIcon } from './components/icons';
 import { Crumbs } from './components/crumbs';
 import { DirectoryItem } from './components/directory-item';
@@ -26,7 +26,7 @@ app.use('*', logger(consola.info), secureHeaders(), cors(), timing(), unocss());
 app.use(
 	'/__static/*',
 	serveStatic({
-		root: args.directory,
+		root: relative(process.cwd(), args.directory),
 		rewriteRequestPath: (path) => path.replace(/^\/__static/, ''),
 	}),
 );
