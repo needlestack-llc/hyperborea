@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "node scripts/build.mjs",
 		"format": "prettier --write .",
-		"dev": "concurrently \"esbuild src/index.tsx --watch --platform=node --loader:.css=text --loader:.client.js=text --bundle --minify --outfile=.tmp/index.js\" \"nodemon .tmp/index.js\""
+		"dev": "concurrently \"esbuild src/index.tsx --watch --platform=node --loader:.css=text --loader:.client.js=text --bundle --minify --outfile=dist/index.js\" \"nodemon dist/index.js\""
 	},
 	"keywords": [],
 	"author": "Elliot Linn <elliot@needlestack.tech>",
