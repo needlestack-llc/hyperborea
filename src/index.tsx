@@ -83,7 +83,7 @@ app.notFound(async (ctx) => {
 						{urlPath === '' && <span>{ctx.req.url}</span>}
 						<Crumbs path={urlPath} />
 					</span>
-					<label class="sticky top-0 bg-neutral-950 px-6 py-3 -translate-x-6 w-screen">
+					<label class="sticky top-0 bg-neutral-950 px-6 py-3 -translate-x-6 w-screen z-10">
 						<span class="absolute top-1.5 bottom-1.5 left-9 flex items-center justify-center">
 							<MagnifyingGlassIcon />
 						</span>
