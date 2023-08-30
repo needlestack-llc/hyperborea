@@ -1,16 +1,13 @@
 import consola from 'consola';
-import { resolve } from 'path';
-import { cwd } from 'process';
 import { parseArgs as parseNodeArgs } from 'util';
-
-const help = `\
-hyperborea [directory?] or --directory /path/to/files\
-`;
 
 export const parseArgs = () => {
 	const args = parseNodeArgs({
 		options: {
 			directory: {
+				type: 'string',
+			},
+			config: {
 				type: 'string',
 			},
 		},
@@ -27,5 +24,6 @@ export const parseArgs = () => {
 
 	return {
 		directory: dir ?? './',
+		config: args.values.config,
 	};
 };

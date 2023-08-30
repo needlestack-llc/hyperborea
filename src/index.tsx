@@ -5,6 +5,7 @@ import { logger } from 'hono/logger';
 import { timing } from 'hono/timing';
 import { secureHeaders } from 'hono/secure-headers';
 import { cors } from 'hono/cors';
+import { basicAuth } from 'hono/basic-auth';
 import unocss, { UnoStyles } from './middleware/uno';
 import { consola } from 'consola';
 import chalk from 'chalk';
@@ -15,14 +16,33 @@ import { ChevronLeftIcon, MagnifyingGlassIcon } from './components/icons';
 import { Crumbs } from './components/crumbs';
 import { DirectoryItem } from './components/directory-item';
 import clientScript from './index.client.js';
+import { loadConfig } from './config';
 
 const args = parseArgs();
+const config = loadConfig(args.config ?? './hyperborea.json');
+
+if (config.directory) {
+	args.directory = config.directory;
+}
 
 const app = new Hono();
 
 consola.log(chalk.bold(chalk.cyanBright('❄️ hyperborea')));
 
 app.use('*', logger(consola.info), secureHeaders(), cors(), timing(), unocss());
+
+if (config.basicAuth) {
+	const [firstUser, ...users] = config.basicAuth.credentials;
+	app.use(
+		'*',
+		basicAuth(
+			{
+				...firstUser,
+			},
+			...users,
+		),
+	);
+}
 app.use(
 	'/__static/*',
 	serveStatic({
