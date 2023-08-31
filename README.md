@@ -9,19 +9,19 @@ Requirements:
 ## Developing
 
 ```sh
-$ pnpm install
-$ pnpm run dev
+pnpm install
+pnpm run dev
 ```
 
 ## Building
 
 ```sh
-$ pnpm install
-$ pnpm run build
+pnpm install
+pnpm run build
 ```
 
 ## Usage
 
 ```sh
-$ node hyperborea.js ./path/to/serve
+node dist/index.js ./path/to/serve
 ```
