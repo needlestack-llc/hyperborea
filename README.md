@@ -4,7 +4,7 @@ A simple remote file browser.
 
 Requirements:
 
--   Node >=20
+-   Node >=LTS
 
 ## Developing
 
@@ -24,4 +24,23 @@ pnpm run build
 
 ```sh
 node dist/index.js ./path/to/serve
+```
+
+## Configuration
+
+```json
+{
+	"directory": "/path/to/files",	// This path needs to be absolute
+	"port": 3000,
+	"newTab": false,				// Whether or not to open files in a new tab
+	"basicAuth": {
+		"credentials": {
+			{
+				"username": "user",
+				"password": "password"
+			}
+		]
+	}
+}
+
 ```

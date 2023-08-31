@@ -1,0 +1,11 @@
+{
+	"newTab": true,
+	"basicAuth": {
+		"credentials": [
+			{
+				"username": "user",
+				"password": "password"
+			}
+		]
+	}
+}

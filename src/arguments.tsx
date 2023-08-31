@@ -10,6 +10,12 @@ export const parseArgs = () => {
 			config: {
 				type: 'string',
 			},
+			port: {
+				type: 'string',
+			},
+			help: {
+				type: 'boolean',
+			},
 		},
 		allowPositionals: true,
 	});
@@ -22,8 +28,16 @@ export const parseArgs = () => {
 		);
 	}
 
+	let port = 3000;
+
+	if (args.values.port && !Number.isNaN(parseInt(args.values.port))) {
+		port = parseInt(args.values.port);
+	}
+
 	return {
 		directory: dir ?? './',
 		config: args.values.config,
+		help: args.values.help,
+		port: port,
 	};
 };
