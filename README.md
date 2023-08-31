@@ -28,11 +28,11 @@ node dist/index.js ./path/to/serve
 
 ## Configuration
 
-```json
+```js
 {
-	"directory": "/path/to/files",	// This path needs to be absolute
+	"directory": "/path/to/files", // This path needs to be absolute
 	"port": 3000,
-	"newTab": false,				// Whether or not to open files in a new tab
+	"newTab": false, // Whether or not to open files in a new tab
 	"basicAuth": {
 		"credentials": {
 			{
